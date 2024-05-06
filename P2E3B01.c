@@ -18,12 +18,12 @@ int main(void)
 	system("pause");  //螢幕畫面暫停，並等待使用者按任意鍵
 	system("CLS");  //清除畫面 
     	
-    int password=2024,i,p,e,j,k;      
-    printf("請輸入密碼:");         //輸入密碼，判斷是否正確        
+    int password=2024,i,p,e,j,k;    //設定密碼2024，輸入密碼，判斷是否正確  
+    printf("請輸入密碼:");                 
                             
-    for (i=0;i<3;i++)
+    for (i=0;i<3;i++)              
     {
-    	scanf("%d",&p);     
+    	scanf("%d",&p);     //輸入10進位數字
         if(p==password)         
 		{         
             break;
@@ -39,7 +39,7 @@ int main(void)
     	{
 			printf("歡迎!!\n");
 			system("pause");
-			system("CLS");    
+			system("CLS");    //清除頁面
 		}
 		else
 		{
@@ -101,7 +101,7 @@ int main(void)
 			}
 			printf("\n");					
 			system("pause");
-			system("CLS");
+			system("CLS");     //清除頁面
 			goto menu;			
 		}
 	}
@@ -110,13 +110,13 @@ int main(void)
 		m2:
 		printf("請輸入一個1~9的整數:");
 		fflush(stdin);                      //使input buffer淨空
-		scanf("%d",&e);
+		scanf("%d",&e);            //清除頁面
 		
 		if(e<1||e>9)                       //判斷輸入的字元是否正確
 		{
 			printf("輸入錯誤，請重新輸入\n\n");
 			system("pause");
-			system("CLS");
+			system("CLS");        //清除頁面
 			goto m2;
 		}
 		else
@@ -136,7 +136,7 @@ int main(void)
 			}
 			printf("\n");		
 			system("pause");
-			system("CLS");
+			system("CLS");         //清除頁面
 			goto menu;
 		}	
 	}
@@ -152,7 +152,7 @@ int main(void)
 		{	
 			printf("返回目錄\n\n");	
 			system("pause");
-			system("CLS");
+			system("CLS");     //清除頁面
 			goto menu;
 		}
 		else if(e==78||e==110) 
@@ -165,7 +165,7 @@ int main(void)
 		{
 			printf("輸入錯誤，請重新輸入\n\n");
 			system("pause");
-			system("CLS");
+			system("CLS");         //清除頁面
 			goto m3;
 		}		
 
@@ -174,7 +174,7 @@ int main(void)
 	{
 		printf("輸入錯誤，請重新輸入\n\n");
 		system("pause");
-		system("CLS");
+		system("CLS");    //清除頁面
 		goto menu;					
 	}
 		
