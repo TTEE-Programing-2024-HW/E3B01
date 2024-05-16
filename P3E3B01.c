@@ -57,4 +57,27 @@ int length=8,height=0;			//設定亂數座位上下限
 	fflush(stdin);
 	scanf("%c", &ch);
 	system("CLS");
+	switch(ch)			//根據輸入的字元選擇功能															 
+	{
+	case'A':			//a. 顯示現有座位																
+	case'a':
+		printf("\\123456789\n");			//印出座位表											
+		for (q= 8;q>=0;q--)
+		{
+			printf("%d",q+1);
+			for (w=0;w<=8;w++)
+			{
+				if (seat[q][w] == 0)
+					printf("-");
+				else
+					printf("*");
+			}
+					printf("\n");
+		}
+	printf("(按下任意鍵回到主選單)\n");									//提示回到主選單 
+	getch(fault);
+	goto menu;
+	
+	}
+	return 0;
 }
