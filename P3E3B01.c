@@ -187,6 +187,31 @@ int length=8,height=0;			//設定亂數座位上下限
 			printf("\n(按下任意鍵回到主選單)\n");			//回到主選單 
 			getch(fault);
 			goto menu;
+	case'D':			//d.系統結束															 
+	case'd':
+			printf("Continue? (y/n)");			//確認輸入者是否繼續											 
+			fflush(stdin);
+			scanf("%c", &ch);
+			while(ch != 'Y' && ch != 'y' && ch != 'N' && ch != 'n')			//確認是否為需要中的字元 
+			{
+				system("CLS");
+				printf("錯誤訊息，請重新輸入！\n");			//判斷為錯誤，要求輸入者重新輸入 								
+				printf("請輸入一個字元 =>");
+				scanf("%c", &ch);
+			}
+			
+			if(ch == 'Y' || ch == 'y')			//確認輸入者的選擇 											
+				return 0;
+			else
+				goto menu;
+			return 0;
+			
+		default:																			
+			printf("錯誤訊息，請重新輸入！\n");			//輸入的字元和要求不同，要求輸入者重新輸入
+			printf("(按下任意鍵回到主選單)\n");
+			getch(fault);
+			system("CLS");
+			goto menu;
 			
 	}
 	return 0;
