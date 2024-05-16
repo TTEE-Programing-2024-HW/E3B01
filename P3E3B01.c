@@ -36,4 +36,25 @@ while(code!= 2024)			//判斷是否有錯誤
 	printf("輸入4個數字的密碼:");			//輸入密碼並偵測 
 	scanf("%d", &code);
 }
+int length=8,height=0;			//設定亂數座位上下限 
+	for(e=0;e<=9;e++)			//產生亂數座位
+	{
+		q=rand() % (length-height+1)+height;
+		w=rand() % (length-height+1)+height;
+	if (seat[q][w] == 1)
+		e--;
+		seat[q][w] = 1;
+	}
+	menu:			//顯示主選單 
+	system("CLS");																
+	printf("。．。．。．。．。．。．\n");  //顯示螢幕主選單 
+	printf("．   a.顯示現有座位   。\n");
+	printf("。   b.電腦排位       ．\n");
+	printf("．   c.自主選位       。\n");
+	printf("。   d.系統結束       ．\n");
+	printf("．。．。．。．。．。．。\n");
+	printf("輸入一個字元:");			//輸入abcd並偵測 												
+	fflush(stdin);
+	scanf("%c", &ch);
+	system("CLS");
 }
