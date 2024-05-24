@@ -13,6 +13,46 @@ struct man
 	int eg;// 英文成績
 	float avg;// 平均成績
 };
+int i,j;
+// 輸入學生成績
+void enter_grades(struct man stu[], int *n) {
+    printf("請輸入學生數量 (5~10)：");
+    scanf("%d", n);
+
+    if (*n < 5 || *n > 10) {
+        printf("數量必須在5到10之間\n");
+        return;
+    }
+    for (i = 0; i < *n; i++) {
+        printf("請輸入第%d位學生的姓名：", i + 1);
+        scanf("%s", stu[i].name);
+        printf("請輸入6位數字的學號：");
+        scanf("%d", &stu[i].id);
+
+        if (stu[i].id < 100000 || stu[i].id > 999999) {
+            printf("學號必須為6位數字\n");
+            i--;
+            continue;
+        }
+
+        printf("請輸入數學成績 (0~100)：");
+        scanf("%d", &stu[i].mg);
+        printf("請輸入物理成績 (0~100)：");
+        scanf("%d", &stu[i].pg);
+        printf("請輸入英文成績 (0~100)：");
+        scanf("%d", &stu[i].eg);
+
+        if (stu[i].mg < 0 || stu[i].mg > 100 || stu[i].pg < 0 || stu[i].pg > 100 || stu[i].eg < 0 || stu[i].eg > 100) {
+            printf("成績必須在0到100之間\n");
+            i--;
+            continue;
+        }
+
+        stu[i].avg = (stu[i].mg + stu[i].pg + stu[i].eg) / 3.0;
+    }
+    printf("成績輸入完成！\n");
+    system("PAUSE");
+}
 int main(void)
 {
 	int password = 0, w, n=0;
@@ -52,6 +92,7 @@ int main(void)
 		scanf("%d", &password);
 	}
 	// 主選單 
+	while (1) {
     system("CLS");// 清除屏幕		
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN);
     printf("----------[Grade System]----------\n");
@@ -63,6 +104,29 @@ int main(void)
     printf("----------------------------------\n");
     printf("請輸入 a~e 選項\n");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+    fflush(stdin);// 清除標準輸入緩衝區
+    ch = getch();
+	// 根據選項執行對應功能
+    switch (ch) {
+        case 'a':
+            enter_grades(stu, &n);
+            break;
+        case 'b':
+            
+            break;
+        case 'c':
+            
+            break;
+        case 'd':
+            
+            break;
+        case 'e':
+            
+            break;
+        default:
+            printf("無效的選項，請重新輸入。\n");
+            system("PAUSE");
+        }
+    }
     return 0;
 }
-
