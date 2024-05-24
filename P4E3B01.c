@@ -1,22 +1,23 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 #include <string.h>
-#include<windows.h>
+#include <windows.h>
+// 定義學生結構體
 struct man																		
 {
-    char name[10];
-	int id;
-	int mg;
-	int pg;
-	int eg;
-	float avg;
-};//使用結構 
+    char name[10];// 學生姓名
+	int id;// 學生學號
+	int mg;// 數學成績
+	int pg;// 物理成績
+	int eg;// 英文成績
+	float avg;// 平均成績
+};
 int main(void)
-{	
-	int password = 0, w, n=0, i, j, k, bs[10]={ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};	
-	char ch, find[10];
-	struct man stu[10];
+{
+	int password = 0, w, n=0;
+	char ch;
+	struct man stu[10];// 定義最多10位學生
 	{
 		printf("                                                                           \n"); 
 		printf("       EEEEEEEEEE     3333333333      BBBBBBBBBB       0000000000      111 \n"); 
@@ -30,18 +31,19 @@ int main(void)
 		printf("       EEEEEEEEEE     33333333333     BBBBBBBBBBB      0000000000      111 \n"); 
 		printf("       EEEEEEEEEE     3333333333      BBBBBBBBBB       0000000000      111 \n");   
 		printf("                                                                           \n");//顯示個人風格封面 
-		system("PAUSE");
-		system("CLS");
+		system("PAUSE");// 暫停顯示
+		system("CLS");// 清除屏幕
 	} 
-	
+	// 密碼驗證
 	printf("請輸入4位數密碼 =>");												
-	scanf("%d", &password);//輸入密碼並偵測
+	scanf("%d", &password);
 	w = 0;
 	while(password != 2024)//判斷是否有錯誤													 
 	{
 		w+=1;
-		if(w >= 3)//如果超過設定的次數則關閉程式																
+		if(w >= 3)// 錯誤次數超過三次																
 		{
+			printf("密碼錯誤次數過多，程式結束。\n");
 			system("pause");
 			return 0;
 		}
@@ -49,19 +51,18 @@ int main(void)
 		printf("請輸入4位數密碼 =>");											 
 		scanf("%d", &password);
 	}
-	menu:
-	system("CLS");		
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_INTENSITY|FOREGROUND_BLUE|FOREGROUND_GREEN);
-	printf("----------[Grade System]----------\n");
-	printf("|  a. Enter student grades       |\n");
-	printf("|  b. Display student grades     |\n");
-	printf("|  c. Search for student grades  |\n");
-	printf("|  d. Grade ranking              |\n");
-	printf("|  e. Exit system                |\n");
-	printf("----------------------------------\n");
-	printf("請輸入a~e\n");
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),FOREGROUND_INTENSITY|FOREGROUND_RED|FOREGROUND_GREEN);
-	scanf("%c", &ch);
-	return 0;
+	// 主選單 
+    system("CLS");// 清除屏幕		
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE | FOREGROUND_GREEN);
+    printf("----------[Grade System]----------\n");
+    printf("|  a. Enter student grades       |\n");
+    printf("|  b. Display student grades     |\n");
+    printf("|  c. Search for student grades  |\n");
+    printf("|  d. Grade ranking              |\n");
+    printf("|  e. Exit system                |\n");
+    printf("----------------------------------\n");
+    printf("請輸入 a~e 選項\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+    return 0;
 }
 
