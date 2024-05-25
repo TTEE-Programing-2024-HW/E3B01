@@ -63,6 +63,30 @@ void display_grades(struct man stu[], int n) {
     printf("按任意鍵返回主選單...");
     getch();
 }
+// 搜尋學生成績
+void search_grades(struct man stu[], int n) {
+    system("CLS");
+    char find[10];
+    printf("請輸入要搜尋的學生姓名：");
+    scanf("%s", find);
+
+    int found = 0;
+    for (i= 0; i < n; i++) {
+        if (strcmp(stu[i].name, find) == 0) {
+            printf("姓名: %s, 學號: %d, 數學: %d, 物理: %d, 英文: %d, 平均: %.1f\n",
+                   stu[i].name, stu[i].id, stu[i].mg, stu[i].pg, stu[i].eg, stu[i].avg);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("找不到該學生資料。\n");
+    }
+
+    printf("按任意鍵返回主選單...");
+    getch();
+}
 int main(void)
 {
 	int password = 0, w, n=0;
@@ -125,7 +149,7 @@ int main(void)
             display_grades(stu, n);
             break;
         case 'c':
-            
+            search_grades(stu, n);
             break;
         case 'd':
             
