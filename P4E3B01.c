@@ -53,6 +53,16 @@ void enter_grades(struct man stu[], int *n) {
     printf("成績輸入完成！\n");
     system("PAUSE");
 }
+// 顯示所有學生成績
+void display_grades(struct man stu[], int n) {
+    system("CLS");
+    for (i = 0; i < n; i++) {
+        printf("姓名: %s, 學號: %d, 數學: %d, 物理: %d, 英文: %d, 平均: %.1f\n",
+               stu[i].name, stu[i].id, stu[i].mg, stu[i].pg, stu[i].eg, stu[i].avg);
+    }
+    printf("按任意鍵返回主選單...");
+    getch();
+}
 int main(void)
 {
 	int password = 0, w, n=0;
@@ -112,7 +122,7 @@ int main(void)
             enter_grades(stu, &n);
             break;
         case 'b':
-            
+            display_grades(stu, n);
             break;
         case 'c':
             
