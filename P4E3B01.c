@@ -87,6 +87,28 @@ void search_grades(struct man stu[], int n) {
     printf("按任意鍵返回主選單...");
     getch();
 }
+// 按平均成績排序並顯示學生排名
+void grade_ranking(struct man stu[], int n) {
+    system("CLS");
+    struct man temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (stu[i].avg < stu[j].avg) {
+                temp = stu[i];
+                stu[i] = stu[j];
+                stu[j] = temp;
+            }
+        }
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("姓名: %s, 學號: %d, 平均成績: %.1f\n",
+               stu[i].name, stu[i].id, stu[i].avg);
+    }
+
+    printf("按任意鍵返回主選單...");
+    getch();
+}
 int main(void)
 {
 	int password = 0, w, n=0;
@@ -152,7 +174,7 @@ int main(void)
             search_grades(stu, n);
             break;
         case 'd':
-            
+            grade_ranking(stu, n);
             break;
         case 'e':
             
