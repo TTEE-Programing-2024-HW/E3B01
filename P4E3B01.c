@@ -109,6 +109,22 @@ void grade_ranking(struct man stu[], int n) {
     printf("按任意鍵返回主選單...");
     getch();
 }
+// 退出系統
+void exit_system() {
+    char choice;
+    while (1) {
+        printf("確定離開？ (y/n)：");
+        scanf(" %c", &choice);
+        if (choice == 'y' || choice == 'Y') {
+            printf("程式結束。\n");
+            exit(0);
+        } else if (choice == 'n' || choice == 'N') {
+            break;
+        } else {
+            printf("無效的選項，請重新輸入。\n");
+        }
+    }
+}
 int main(void)
 {
 	int password = 0, w, n=0;
@@ -177,7 +193,7 @@ int main(void)
             grade_ranking(stu, n);
             break;
         case 'e':
-            
+            exit_system();
             break;
         default:
             printf("無效的選項，請重新輸入。\n");
